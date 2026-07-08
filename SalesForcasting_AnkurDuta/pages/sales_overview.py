@@ -121,7 +121,7 @@ monthly_sales = (
     .groupby(
         pd.Grouper(
             key="Order Date",
-            freq="M"
+            freq="ME"
         )
     )["Sales"]
     .sum()

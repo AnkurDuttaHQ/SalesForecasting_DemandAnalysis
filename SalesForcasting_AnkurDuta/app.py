@@ -1,23 +1,17 @@
 import streamlit as st
+from pathlib import Path
 
-st.set_page_config(
-    page_title="Sales Forecasting Dashboard",
-    page_icon="📈",
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
+st.title("Debug")
 
-st.title("📈 Sales Forecasting & Demand Intelligence Dashboard")
+BASE = Path(__file__).resolve().parent
 
-st.markdown("""
-## Welcome 👋
+st.write("Current folder:", BASE)
 
-This dashboard contains:
+st.write("Files here:")
+st.write(list(BASE.iterdir()))
 
-- 📊 Sales Overview
-- 🔮 Forecast Explorer
-- 🚨 Anomaly Report
-- 📦 Product Demand Segments
+st.write("Data folder exists:", (BASE / "data").exists())
 
-Use the **sidebar** to navigate between pages.
-""")
+if (BASE / "data").exists():
+    st.write("Data files:")
+    st.write(list((BASE / "data").iterdir()))
